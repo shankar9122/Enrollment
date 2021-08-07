@@ -1,0 +1,75 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+body{
+  background-color: #f7efef;
+}
+.errorshow{
+  font-size: 12px;
+  color: red;
+}
+.errorshow input {
+  border: 1px solid red !important;
+}
+.errorshide input {
+  border: 1px solid #ededed !important;
+}
+.addBtn{
+  outline: none;
+  border: none;
+  padding: 8px 20px;
+  background-image: linear-gradient(180deg,#00a65a,#17d27c);
+  border-radius: 5px;
+  color: #fff;
+  opacity: 1;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.addBtn:hover{
+  opacity: .6;
+  color: #fff;
+}
+
+.float{
+  float: right;
+}
+
+.box{
+  background-color: #fff;
+  box-shadow: 0px 8px 14px  #f8f8f8;
+}
+
+.calendar {
+  height: 38px;
+}
+
+.paginationData .pagination {
+  float: right;
+}
+.paginationData .pagination li {
+  display: inline-block;
+
+  margin-right: 10px;
+}
+.paginationData .pagination li a {
+  padding: 7px 10px;
+  color: #a1b1c8;
+  border: 1px solid #a1b1c8;
+  font-size: 13px;
+  display: block;
+}
+.paginationData .pagination li.active a {
+  background: #1c293b;
+  color: #fff;
+}
+.paginationData .pagination li.next,
+.paginationData .pagination li.previous {
+  display: none;
+}
