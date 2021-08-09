@@ -167,6 +167,20 @@
       "class": 10,
       "marks": 60,
       "date_enroll": "06-08-2021"
+    },
+    {
+      "dob": "2019-09-18T00:24:07.000Z",
+      "date_enroll": "2021-08-09T00:24:07.801Z",
+      "student_name": "Ranjan Kumari",
+      "father_name": "dsasd",
+      "email": "web4shankar@gmail.com",
+      "phone": "9304422463",
+      "state": "bihar",
+      "city": "supaul",
+      "pin": "847452",
+      "marks": "70",
+      "class": "7",
+      "id": 13
     }
   ]
 }

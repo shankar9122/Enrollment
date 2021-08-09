@@ -14,7 +14,6 @@ const StudentList = () => {
 
     const [PageNumber, setPageNumber] = useState(1)
     const [pageCount, setPageCount] = useState(0)
-    const [currentPage, setCurrentPage] = useState()
 
 
 
@@ -84,12 +83,12 @@ const StudentList = () => {
                                 {studentList.map((item, index) => (
                                     <tr key={index} style={{ cursor: "pointer" }}
                                         >
-                                        <td>{index + 1}</td>
+                                        <td>{item.id}</td>
                                         <td onClick={() => handleStudentDetails(item)}>{item.student_name}</td>
                                         <td>{item.email}</td>
                                         <td>{item.class}</td>
                                         <td>
-                                            <Link to={{ pathname: `update/${item.id}` }}>
+                                            <Link className="edit_btn" to={{ pathname: `update/${item.id}` }}>
                                                 <img src={editPencil} alt="edit" />
                                             </Link>
                                         </td>
@@ -125,7 +124,7 @@ const StudentList = () => {
                 <Modal.Body>
                     <Container>
                         <Row>
-                            <Col md="6">
+                            <Col md="4" style={{textAlign: "right"}}>
                                 <p>Student Name:</p>
                                 <p> Father's Name:</p>
                                 <p>Email:</p>

@@ -20,6 +20,10 @@ body{
 .errorshide input {
   border: 1px solid #ededed !important;
 }
+.edit_btn{
+  display: block;
+    text-align: center;
+}
 .addBtn{
   outline: none;
   border: none;
