@@ -8,7 +8,7 @@ import ReactPaginate from 'react-paginate';
 
 class EnrollmentData extends Component {
 
-     // funcianal components to class components-----------
+
 
     constructor(props) {
         super(props)
