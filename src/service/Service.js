@@ -39,7 +39,7 @@ export const putApi = (type, data) => {
 
 
 export const formatDate = date => {
-    const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    // const time = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
     let day = date.getDate();
     let month = date.getMonth() + 1;
     const year = date.getFullYear();
@@ -52,7 +52,7 @@ export const formatDate = date => {
         month = `0${month}`;
     }
 
-    const formattedDate = `${day}-${month}-${year} ${time}`;
+    const formattedDate = `${day}-${month}-${year}`;
 
     return formattedDate;
 };

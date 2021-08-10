@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 import DatePicker from 'react-datepicker'
-import { getAPI, postApi, putApi } from '../service/Service'
+import { formatDate, getAPI, postApi, putApi } from '../service/Service'
 
 const EnrolmentForm = (props) => {
 
@@ -35,9 +35,12 @@ const EnrolmentForm = (props) => {
     const handleSubmit = () => {
         if (handleValidation()) {
             let reqData = stuData;
+            reqData["dob"] = formatDate(reqData.dob)
+            reqData["date_enroll"] = formatDate(reqData.date_enroll)
+
             if (props.match.params.id !== undefined) {
                 reqData["id"] = props.match.params.id;
-                
+
                 putApi(`data/${props.match.params.id}`, reqData).then(res => {
                     console.log(res)
                     window.location.replace("/");
