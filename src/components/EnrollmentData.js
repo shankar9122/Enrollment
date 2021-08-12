@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Col, Container, Row, Table, Button, Modal } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { getAPI } from '../service/Service';
+import { deleteItem, getAPI } from '../service/Service';
 import editPencil from '../images/Edit.svg'
 import ReactPaginate from 'react-paginate';
 
@@ -66,7 +66,7 @@ class EnrollmentData extends Component {
 
     getStudentData = () => {
         getAPI(`data`).then(res => {
-
+            res = res.sort((a, b) => a.id < b.id ? 1 : -1)
             const slice = res.slice(this.state.offset, this.state.offset + this.state.perPage)
             this.setState({
                 pageCount: Math.ceil(res.length / this.state.perPage),
@@ -77,9 +77,20 @@ class EnrollmentData extends Component {
         })
     }
 
+    handleDelete = (id) => {
+        deleteItem(`data/${id}`).then(res => {
+            const { studentList } = this.state;
+            let filterStudent = studentList.filter(item => item.id !== id);
+            this.setState({
+                studentList: filterStudent
+            })
+            console.log(filterStudent)
+        })
+    };
+
 
     componentDidMount() {
-        this.getStudentData()
+        this.getStudentData();
     }
 
 
@@ -99,24 +110,33 @@ class EnrollmentData extends Component {
                                         <th>Student Name</th>
                                         <th>Email</th>
                                         <th>Class</th>
-                                        <th>Edit</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {studentList.map((item, index) => (
-                                        <tr key={index} style={{ cursor: "pointer" }}
-                                        >
-                                            <td>{item.id}</td>
-                                            <td onClick={() => this.handleStudentShowDetails(item)}>{item.student_name}</td>
-                                            <td>{item.email}</td>
-                                            <td>{item.class}</td>
-                                            <td>
-                                                <Link className="edit_btn" to={{ pathname: `update/${item.id}` }}>
-                                                    <img src={editPencil} alt="edit" />
-                                                </Link>
-                                            </td>
+                                    {studentList.length > 0 ? (
+                                        studentList.map((item, index) => (
+                                            <tr key={index} style={{ cursor: "pointer" }}>
+                                                <td>{index + 1}</td>
+                                                <td onClick={() => this.handleStudentShowDetails(item)}>{item.student_name}</td>
+                                                <td>{item.email}</td>
+                                                <td>{item.class}</td>
+                                                <td className="action">
+                                                    <Link className="edit_btn" to={{ pathname: `update/${item.id}` }}>
+                                                        <img src={editPencil} alt="edit" />
+                                                    </Link>
+                                                    <i className="fas fa-trash"
+                                                        onClick={() => this.handleDelete(item.id)}
+                                                    ></i>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan={5}>No Student Data</td>
                                         </tr>
-                                    ))}
+                                    )}
+
                                 </tbody>
                             </Table>
 

@@ -29,7 +29,6 @@ const EnrolmentForm = (props) => {
             ...stuData,
             [name]: value
         })
-
     };
 
     const handleSubmit = () => {
@@ -42,13 +41,15 @@ const EnrolmentForm = (props) => {
                 reqData["id"] = props.match.params.id;
 
                 putApi(`data/${props.match.params.id}`, reqData).then(res => {
-                    console.log(res)
-                    window.location.replace("/");
+                    setTimeout(() => {
+                        window.location.replace("/");
+                    }, 300)
                 })
             } else {
                 postApi(`data`, reqData).then(res => {
-                    console.log(res)
-                    window.location.replace("/");
+                    setTimeout(() => {
+                        window.location.replace("/");
+                    }, 300)
                 })
             }
 
@@ -212,7 +213,7 @@ const EnrolmentForm = (props) => {
                                         <Form.Control onChange={handleChange}
                                             name="phone"
                                             value={stuData.phone}
-                                            type="text"
+                                            type="number"
                                             placeholder="Phone" />
                                         <span
                                             className={
@@ -230,7 +231,7 @@ const EnrolmentForm = (props) => {
                                         <Form.Control onChange={handleChange}
                                             name="marks"
                                             value={stuData.marks}
-                                            type="text"
+                                            type="number"
                                             placeholder="marks" />
                                         <span
                                             className={
@@ -310,7 +311,7 @@ const EnrolmentForm = (props) => {
                                         <Form.Control onChange={handleChange}
                                             name="pin"
                                             value={stuData.pin}
-                                            type="text"
+                                            type="number"
                                             placeholder="Pin code" />
                                         <span
                                             className={

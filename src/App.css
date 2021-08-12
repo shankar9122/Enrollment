@@ -21,9 +21,23 @@ body{
   border: 1px solid #ededed !important;
 }
 .edit_btn{
-  display: block;
-    text-align: center;
+  width: 50%;
+  padding: 8px;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.fa-trash {
+  padding: 12px 10px;
+}
+
+.fa-trash:hover{
+  color: #f80909;
+  transition: all .2s ease-in;
+}
+
 .addBtn{
   outline: none;
   border: none;
@@ -76,4 +90,12 @@ body{
 .paginationData .pagination li.next,
 .paginationData .pagination li.previous {
   display: none;
+}
+
+
+.action{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 !important;
 }

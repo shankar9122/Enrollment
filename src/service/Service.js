@@ -5,7 +5,6 @@ export const getAPI = (type) => {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
         }
     }).then((Response) => Response.json()).catch((err) => {
         throw err;
@@ -35,6 +34,18 @@ export const putApi = (type, data) => {
         throw err;
     })
 }
+
+export const deleteItem = (type) => {
+    return fetch(baseUrl + type, {
+        method: 'DELETE',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    }).then((Response) => Response.json()).catch((err) => {
+        throw err;
+    });
+}
+
 
 
 
